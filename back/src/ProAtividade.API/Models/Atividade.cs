@@ -7,17 +7,12 @@ namespace ProAtividade.API.Models
 {
     public class Atividade
     {
-        public int? Id { get; set; }
-        public string? Titulo { get; set; }
-        public string? Descricao { get; set; }
-        public string? Prioridade { get; set; }
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Descricao { get; set; }
+        public Prioridade Prioridade { get; set; }
 
-        public Atividade()
-        {
-            Titulo = "Titulo";
-            Descricao = "Descrição";
-            Prioridade = "1";
-        }
+        public Atividade() {}
         public Atividade(int id)
         {
             Id = id;
