@@ -2,26 +2,13 @@ import React from "react";
 
 export default function Atividade(props) {
 
-    function prioridadeLabel(param) {
-        switch (param) {
-            case "1":
-                return "Baixa";
-            case "2":
-                return "Normal";
-            case "3":
-                return "Alta";
-            default:
-                return "Não Definido";
-        }
-    }
-
     function prioridadeStyle(param, icone) {
         switch (param) {
-            case "1":
+            case "Baixa":
                 return icone ? "smile" : "success";
-            case "2":
+            case "Normal":
                 return icone ? "meh" : "dark";
-            case "3":
+            case "Alta":
                 return icone ? "frown" : "warning";
             default:
                 return "Não Definido";
@@ -33,7 +20,7 @@ export default function Atividade(props) {
             <div className="card-body">
                 <div className="d-flex justify-content-between">
                     <h5 className="card-title">
-                        <span className="badge text-bg-secondary me-1">
+                        <span className="badge bg-secondary me-1">
                             {props.ativ.id}
                         </span>
                         - {props.ativ.titulo}
@@ -51,7 +38,7 @@ export default function Atividade(props) {
                                     prioridadeStyle(props.ativ.prioridade, true)
                                 }
                             ></i>
-                            {prioridadeLabel(props.ativ.prioridade)}
+                            {props.ativ.prioridade}
                         </span>
                     </h6>
                 </div>
@@ -65,7 +52,7 @@ export default function Atividade(props) {
                     </button>
                     <button
                         className="btn btn-sm btn-outline-danger"
-                        onClick={() => props.deletarAtividade(props.ativ.id)}
+                        onClick={() => props.handleConformModal(props.ativ.id)}
                     >
                         <i className="fas fa-trash me-2"></i>
                         Deletar
